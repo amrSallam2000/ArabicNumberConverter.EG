@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ArabicNumberConverter.EG</id>
+    <version>1.0.0</version>
+    <title>Egyptian Numeric Validation System (EG Numeric Validation System)</title>
+    <authors>AmrSallam</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>pngtree-mountain-and-river-vector-icon-nature-sign-high-outdoor-hill-vector-png-image_12603154.png</icon>
+    <readme>Egyptian Numeric Validation System (EG Numeric Validation System).md</readme>
+    <description>Overview
+A comprehensive system for validating and analyzing Egyptian numbers, supporting a wide range of formats including:
+
+Egyptian Barcodes (Weight barcode, Price barcode, Standard barcode)
+
+Egyptian National ID (14-digit national number)
+
+Egyptian Phone Numbers (Mobile)
+
+Number-to-Words Conversion (Arabic and English)</description>
+    <copyright>AmrSallam</copyright>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net5.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Release\net5.0\NumericValidation.EG.dll" target="lib\net5.0\NumericValidation.EG.dll" />
+    <file src="G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Release\net5.0\ArabicNumberConverter.EG.xml" target="lib\net5.0\ArabicNumberConverter.EG.xml" />
+    <file src="G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Release\net5.0\ArabicNumberConverter.EG.xml" target="\ArabicNumberConverter.EG.xml" />
+    <file src="C:\Users\moham\Downloads\Egyptian Numeric Validation System (EG Numeric Validation System).md" target="\Egyptian Numeric Validation System (EG Numeric Validation System).md" />
+    <file src="C:\Users\moham\Downloads\pngtree-mountain-and-river-vector-icon-nature-sign-high-outdoor-hill-vector-png-image_12603154.png" target="\pngtree-mountain-and-river-vector-icon-nature-sign-high-outdoor-hill-vector-png-image_12603154.png" />
+  </files>
+</package>

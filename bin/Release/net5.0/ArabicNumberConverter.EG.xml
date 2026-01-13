@@ -1,0 +1,2677 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NumericValidation.EG</name>
+    </assembly>
+    <members>
+        <member name="T:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo">
+            <summary>
+            Comprehensive data model containing all extracted barcode information
+            with bilingual support (Arabic/English) and rich formatting options.
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.SelectedCurrency">
+            <summary>Currency to use for price conversion (default: EGP)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.SelectedLanguage">
+            <summary>Language for number-to-words conversion (default: Arabic)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.IsValid">
+            <summary>Indicates whether the barcode parsing was successful</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.ErrorMessage">
+            <summary>Detailed error message for failed parsing operations</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.OriginalBarcode">
+            <summary>Original unprocessed barcode string as received</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.CleanedBarcode">
+            <summary>Sanitized barcode with all non-numeric characters removed</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.Type">
+            <summary>Detected or specified barcode type (Standard/Weight/Price)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.Standard">
+            <summary>Barcode standard format (EAN-13/EAN-8/UPC-A)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.ProductCode">
+            <summary>Extracted product/item identification code</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.ProductCodeArabic">
+            <summary>Product code displayed using Arabic-Indic numerals (٠-٩)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.Prefix">
+            <summary>Barcode prefix identifier (e.g., "2" for variable-weight items)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.PrefixArabic">
+            <summary>Prefix displayed using Arabic-Indic numerals</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.CheckDigit">
+            <summary>Check digit used for barcode validation (last digit)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.CountryCode">
+            <summary>GS1 country/region code prefix</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.CountryNameEnglish">
+            <summary>Country name in English based on GS1 prefix</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.CountryNameArabic">
+            <summary>Country name in Arabic based on GS1 prefix</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.Weight">
+            <summary>Product weight in kilograms (0 for non-weighted items)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.WeightInGrams">
+            <summary>Product weight in grams (calculated from kilograms)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.WeightTextEnglish">
+            <summary>Formatted weight with unit in English (e.g., "1.234 kg")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.WeightTextArabic">
+            <summary>Formatted weight with unit in Arabic (e.g., "١٫٢٣٤ كجم")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.WeightInGramsTextEnglish">
+            <summary>Formatted weight in grams with unit in English (e.g., "1234 grams")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.WeightInGramsTextArabic">
+            <summary>Formatted weight in grams with unit in Arabic (e.g., "١٢٣٤ جرام")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.WeightInWordsArabic">
+            <summary>Weight written in Arabic words (e.g., "واحد كيلو ومئتان جرام")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.WeightInWordsEnglish">
+            <summary>Weight written in English words (e.g., "One kilogram and two hundred grams")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.Price">
+            <summary>Product price in selected currency</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.PriceTextEnglish">
+            <summary>Formatted price with currency symbol in English (e.g., "50.00 EGP", "100.00 USD")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.PriceTextArabic">
+            <summary>Formatted price with currency name in Arabic (e.g., "٥٠٫٠٠ جنيه مصري", "١٠٠٫٠٠ دولار أمريكي")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.PriceInWords">
+            <summary>Price written in words in selected language and currency</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.PriceInWordsArabic">
+            <summary>Price written in Arabic words with selected currency</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.PriceInWordsEnglish">
+            <summary>Price written in English words with selected currency</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.UnitPrice">
+            <summary>
+            Calculated unit price per kilogram (Price ÷ Weight).
+            Returns 0 if weight or price is not available.
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.UnitPriceTextEnglish">
+            <summary>Formatted unit price in English (e.g., "100.00 EGP/kg", "200.00 USD/kg")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.UnitPriceTextArabic">
+            <summary>Formatted unit price in Arabic (e.g., "١٠٠٫٠٠ جنيه/كجم", "٢٠٠٫٠٠ دولار/كجم")</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.UnitPriceInWords">
+            <summary>Unit price written in words in selected language and currency</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.TypeNameEnglish">
+            <summary>Human-readable barcode type name in English</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.TypeNameArabic">
+            <summary>Human-readable barcode type name in Arabic</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.SummaryEnglish">
+            <summary>
+            Comprehensive single-line summary in English.
+            Includes type, product code, weight, price, and unit price.
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.SummaryArabic">
+            <summary>
+            Comprehensive single-line summary in Arabic.
+            Includes type, product code, weight, price, and unit price.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.GetCurrencyNameArabic(NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency)">
+            <summary>
+            Gets currency name in Arabic based on selected currency
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.GetCurrencySymbolEnglish(NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency)">
+            <summary>
+            Gets currency symbol in English based on selected currency
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.GetCurrencyNameEnglish(NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency)">
+            <summary>
+            Gets currency name in English based on selected currency
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.GetSupportedCurrencies">
+            <summary>
+            Gets all supported currencies with their info
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.ToString">
+            <summary>
+            Generates a comprehensive formatted report with all barcode information.
+            Includes bilingual (English/Arabic) display with proper sectioning and emojis.
+            </summary>
+            <returns>Multi-line formatted string with complete barcode details</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.ToStringEnglish">
+            <summary>
+            Returns a concise single-line summary in English.
+            </summary>
+            <returns>Brief English summary or error message</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.ToStringArabic">
+            <summary>
+            Returns a concise single-line summary in Arabic.
+            </summary>
+            <returns>Brief Arabic summary or error message</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.ToDictionary">
+            <summary>
+            Creates a JSON-friendly dictionary of all barcode properties.
+            Useful for API responses and serialization scenarios.
+            </summary>
+            <returns>Dictionary with all barcode information</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.GetPriceConversionDetails">
+            <summary>
+            Returns detailed conversion information using NumberToWordsConverter
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.ChangeCurrency(NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency)">
+            <summary>
+            Changes currency and updates all price-related properties
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.ChangeLanguage(NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Language)">
+            <summary>
+            Changes language and updates all text-related properties
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo.GetCurrentCurrencyInfo">
+            <summary>
+            Gets the complete currency information for the selected currency
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser">
+            <summary>
+            Professional Egyptian barcode parser supporting standard, weight, and price barcodes
+            with comprehensive error handling and market-specific detection algorithms.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.#ctor">
+            <summary>
+            Initializes a new instance of the BarcodeParser class.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.#ctor(System.String,NumericValidation.EG.Models.BarcodeNumber.BarcodeType)">
+            <summary>
+            Initializes a new instance with a single barcode.
+            </summary>
+            <param name="barcode">The barcode string to parse</param>
+            <param name="type">Optional barcode type specification</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when barcode is null</exception>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance with multiple barcodes.
+            </summary>
+            <param name="barcodes">Array of barcode strings</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when barcodes is null</exception>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance with a collection of barcodes.
+            </summary>
+            <param name="barcodes">Enumerable collection of barcode strings</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when barcodes is null</exception>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.SetDefaultType(NumericValidation.EG.Models.BarcodeNumber.BarcodeType)">
+            <summary>
+            Configures the default barcode type for parsing operations.
+            </summary>
+            <param name="type">The barcode type to set as default</param>
+            <returns>Current instance for fluent method chaining</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.EnableStrictMode">
+            <summary>
+            Enables strict validation mode including check digit verification.
+            </summary>
+            <returns>Current instance for fluent method chaining</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.AddBarcode(System.String)">
+            <summary>
+            Adds a single barcode to the processing queue.
+            </summary>
+            <param name="barcode">The barcode string to add</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when barcode is null</exception>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.AddBarcodes(System.String[])">
+            <summary>
+            Adds multiple barcodes to the processing queue.
+            </summary>
+            <param name="barcodes">Array of barcode strings to add</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when barcodes is null</exception>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.Parse(System.String,System.Nullable{NumericValidation.EG.Models.BarcodeNumber.BarcodeType},System.Nullable{System.Decimal})">
+            <summary>
+            Parses a single barcode with comprehensive error handling and type detection.
+            </summary>
+            <param name="barcode">The barcode string to parse</param>
+            <param name="type">Optional explicit barcode type</param>
+            <param name="pricePerKg">Required for price barcodes - price per kilogram</param>
+            <returns>BarcodeInfo object containing all parsed information</returns>
+            <example>
+            <code>
+            var parser = new BarcodeParser();
+            var result = parser.Parse("2123450123405", BarcodeType.Weight);
+            if (result.IsValid)
+            {
+                Console.WriteLine($"Product Code: {result.ProductCode}");
+                Console.WriteLine($"Weight: {result.Weight} kg");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ParseAll">
+            <summary>
+            Processes all queued barcodes in batch mode.
+            </summary>
+            <returns>List of BarcodeInfo objects for all processed barcodes</returns>
+            <remarks>
+            This method processes barcodes sequentially and returns results in the same order
+            they were added. Each barcode is processed independently.
+            </remarks>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.GetValidBarcodes">
+            <summary>
+            Retrieves successfully parsed barcodes with valid formatting.
+            </summary>
+            <returns>Filtered list of valid BarcodeInfo objects</returns>
+            <seealso cref="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.GetInvalidBarcodes"/>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.GetInvalidBarcodes">
+            <summary>
+            Retrieves barcodes that failed parsing or validation.
+            </summary>
+            <returns>Filtered list of invalid BarcodeInfo objects with error details</returns>
+            <seealso cref="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.GetValidBarcodes"/>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.Parse(System.String,NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency)">
+            <summary>
+            Parses a barcode with currency specification
+            </summary>
+            <param name="barcode">The barcode string to parse</param>
+            <param name="currency">The currency to use for price conversion</param>
+            <returns>BarcodeInfo object with currency-adjusted values</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when barcode is null</exception>
+            <remarks>
+            This method is specifically designed for handling price barcodes with currency conversion.
+            If the barcode is not a price barcode, currency conversion will not be applied.
+            </remarks>
+            <example>
+            <code>
+            var parser = new BarcodeParser();
+            var result = parser.Parse("2123450050005", Currency.USD);
+            if (result.IsValid)
+            {
+                Console.WriteLine($"Price: {result.Price} {result.Currency}");
+                Console.WriteLine($"Weight: {result.Weight} kg");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ParseWeightBarcode(System.String,NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo)">
+            <summary>
+            Parses weight-encoded barcodes (prefix '2').
+            Format: [2][5-digit product code][5-digit weight in grams][check digit]
+            Example: "2123450123405" → Product: 12345, Weight: 1.234 kg
+            </summary>
+            <param name="barcode">The cleaned barcode string</param>
+            <param name="result">BarcodeInfo object to populate</param>
+            <returns>Populated BarcodeInfo object</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ValidateAndParsePriceBarcode(System.String,NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo,System.Nullable{System.Decimal})">
+            <summary>
+            Validates requirements and parses price-encoded barcodes (prefix '2').
+            Format: [2][5-digit product code][5-digit total price in piasters][check digit]
+            Example: "2123450050005" with pricePerKg=100 → Product: 12345, Price: 50 EGP, Weight: 0.5 kg
+            </summary>
+            <param name="barcode">The cleaned barcode string</param>
+            <param name="result">BarcodeInfo object to populate</param>
+            <param name="pricePerKg">Price per kilogram for weight calculation</param>
+            <returns>Populated BarcodeInfo object</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ParsePriceBarcodeInternal(System.String,NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo,System.Decimal)">
+            <summary>
+            Internal implementation of price barcode parsing with business logic.
+            </summary>
+            <param name="barcode">The cleaned barcode string</param>
+            <param name="result">BarcodeInfo object to populate</param>
+            <param name="pricePerKg">Price per kilogram</param>
+            <returns>Populated BarcodeInfo object</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ParseStandardBarcode(System.String,NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo)">
+            <summary>
+            Parses standard EAN/UPC barcodes with fixed product encoding.
+            Supports EAN-13 (13 digits), EAN-8 (8 digits), and UPC-A (12 digits).
+            </summary>
+            <param name="barcode">The cleaned barcode string</param>
+            <param name="result">BarcodeInfo object to populate</param>
+            <returns>Populated BarcodeInfo object</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.DetectBarcodeType(System.String)" -->
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.DetectStandard(System.String)">
+            <summary>
+            Identifies barcode standard based on digit count.
+            </summary>
+            <param name="barcode">The cleaned barcode string</param>
+            <returns>Detected barcode standard</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.CleanBarcode(System.String)">
+            <summary>
+            Sanitizes barcode input by removing non-numeric characters.
+            </summary>
+            <param name="barcode">The raw barcode string</param>
+            <returns>Cleaned numeric-only barcode string</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ValidateLengthAndPrefix(System.String,System.Int32,System.String,NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo)">
+            <summary>
+            Validates barcode length and prefix requirements.
+            </summary>
+            <param name="barcode">The cleaned barcode string</param>
+            <param name="requiredLength">Expected barcode length</param>
+            <param name="requiredPrefix">Expected barcode prefix</param>
+            <param name="result">BarcodeInfo object for error reporting</param>
+            <returns>True if validation passes</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.IsValidStandardLength(System.String)">
+            <summary>
+            Checks if barcode length matches standard EAN/UPC formats.
+            </summary>
+            <param name="barcode">The cleaned barcode string</param>
+            <returns>True if length is valid</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ValidateCheckDigit(System.String)">
+            <summary>
+            Validates EAN-13 check digit using standard modulus 10 algorithm.
+            </summary>
+            <param name="barcode">The cleaned barcode string</param>
+            <returns>True if check digit is valid</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.CalculateCheckDigit(System.String)">
+            <summary>
+            Calculates EAN-13 check digit according to GS1 specification.
+            </summary>
+            <param name="barcode">Barcode data without check digit</param>
+            <returns>Calculated check digit (0-9)</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.SetCountryInformation(System.String,NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo)">
+            <summary>
+            Extracts and sets country information based on GS1 prefix.
+            Uses switch expressions for optimal performance with range matching.
+            </summary>
+            <param name="barcode">The cleaned barcode string</param>
+            <param name="result">BarcodeInfo object to populate</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.SetUnknownCountry(NumericValidation.EG.Models.BarcodeNumber.BarcodeInfo)">
+            <summary>
+            Sets default unknown country information.
+            </summary>
+            <param name="result">BarcodeInfo object to populate</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ParseSingle(System.String,NumericValidation.EG.Models.BarcodeNumber.BarcodeType,System.Nullable{System.Decimal})">
+            <summary>
+            Quick-parse a single barcode without instance creation.
+            </summary>
+            <param name="barcode">Barcode string to parse</param>
+            <param name="type">Barcode type specification</param>
+            <param name="pricePerKg">Required for price barcodes</param>
+            <returns>Parsed barcode information</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when barcode is null</exception>
+            <example>
+            <code>
+            var result = BarcodeParser.ParseSingle("5901234123457");
+            if (result.IsValid)
+            {
+                Console.WriteLine($"Country: {result.CountryNameEnglish}");
+                Console.WriteLine($"Product Code: {result.ProductCode}");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ParseWeight(System.String)">
+            <summary>
+            Parses a weight-encoded barcode with simplified API.
+            </summary>
+            <param name="barcode">Weight barcode string</param>
+            <returns>Parsed weight barcode information</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when barcode is null</exception>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.ParsePrice(System.String,System.Decimal)">
+            <summary>
+            Parses a price-encoded barcode with required price per kilogram.
+            </summary>
+            <param name="barcode">Price barcode string</param>
+            <param name="pricePerKg">Price per kilogram for weight calculation</param>
+            <returns>Parsed price barcode information</returns>
+            <exception cref="T:System.ArgumentException">Thrown when pricePerKg is invalid</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown when barcode is null</exception>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.IsValidFormat(System.String)">
+            <summary>
+            Validates barcode format without full parsing.
+            </summary>
+            <param name="barcode">Barcode string to validate</param>
+            <returns>True if barcode format is valid</returns>
+            <remarks>
+            This method only checks the format (length and numeric characters),
+            not the check digit or business logic validity.
+            </remarks>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.GetSupportedCountries">
+            <summary>
+            Retrieves supported country codes with bilingual names.
+            </summary>
+            <returns>Dictionary of country codes with Arabic and English names</returns>
+            <remarks>
+            The dictionary uses country code prefixes as keys and contains
+            tuple values with Arabic and English country names.
+            </remarks>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.GetStatistics">
+            <summary>
+            Generates comprehensive statistics for processed barcodes.
+            </summary>
+            <returns>Dictionary containing parsing metrics and distributions</returns>
+            <remarks>
+            The returned dictionary includes:
+            - TotalProcessed: Total number of barcodes processed
+            - SuccessfullyParsed: Number of successfully parsed barcodes
+            - FailedParses: Number of failed parses
+            - SuccessRate: Success percentage
+            - TypeDistribution: Breakdown by barcode type (if any valid)
+            - TotalWeightKg: Total weight in kilograms (if applicable)
+            - TotalValueEGP: Total value in EGP (if applicable)
+            </remarks>
+        </member>
+        <member name="M:NumericValidation.EG.Models.BarcodeNumber.BarcodeParser.GroupByType">
+            <summary>
+            Groups valid barcodes by their detected type.
+            </summary>
+            <returns>Dictionary of barcode lists organized by type</returns>
+        </member>
+        <member name="T:NumericValidation.EG.Models.BarcodeNumber.BarcodeStandard">
+            <summary>
+            Barcode standards and formats
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeStandard.EAN13">
+            <summary>EAN-13 standard (13 digits)</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeStandard.EAN8">
+            <summary>EAN-8 standard (8 digits)</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeStandard.UPCA">
+            <summary>UPC-A standard (12 digits)</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeStandard.Code128">
+            <summary>Code-128 standard (variable length)</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeStandard.Custom">
+            <summary>Local/custom format (specific to regional implementations)</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeStandard.Unknown">
+            <summary>Unknown or undetermined standard</summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.BarcodeNumber.BarcodeType">
+            <summary>
+            Types of barcodes supported by the parser
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeType.Standard">
+            <summary>Standard barcode (fixed product with predetermined price)</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeType.Weight">
+            <summary>Weight-based barcode (contains weight information)</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeType.Price">
+            <summary>Price-based barcode (contains price information)</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.BarcodeNumber.BarcodeType.Unknown">
+            <summary>Unknown or undetermined barcode type</summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers">
+            <summary>
+            Contains constant definitions for Arabic text processing and numeral conversion
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.WesternToArabicNumerals">
+            <summary>
+            Dictionary mapping Western numerals and symbols to Arabic-Indic equivalents
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicToWesternNumerals">
+            <summary>
+            Dictionary mapping Arabic-Indic numerals and symbols to Western equivalents
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicTextUnification">
+            <summary>
+            Dictionary mapping Arabic character variations to their standard forms
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicDiacritics">
+            <summary>
+            Set of Arabic diacritical marks (tashkeel) that can be removed during normalization
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicTatweel">
+            <summary>
+            Arabic tatweel character (kashida) used for text justification
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicComma">
+            <summary>
+            Arabic comma character
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicSemicolon">
+            <summary>
+            Arabic semicolon character
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicQuestionMark">
+            <summary>
+            Arabic question mark
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicDecimalSeparator">
+            <summary>
+            Arabic decimal separator (Arabic-Indic)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicThousandsSeparator">
+            <summary>
+            Arabic thousands separator (Arabic-Indic)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.Helper.ArabicConstantsNumbers.ArabicPercentSign">
+            <summary>
+            Arabic percent sign
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.Helper.NumberConversionHelper">
+            <summary>
+            Comprehensive tool for Arabic text normalization and numeral conversion - Final Fixed Version
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ToArabicNumerals(System.String)">
+            <summary>
+            Converts Western numerals (0-9) to Arabic-Indic numerals in the input string
+            </summary>
+            <param name="input">The input string containing Western numerals</param>
+            <returns>String with Western numerals converted to Arabic-Indic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ToWesternNumerals(System.String)">
+            <summary>
+            Converts Arabic-Indic numerals to Western numerals (0-9) in the input string
+            </summary>
+            <param name="input">The input string containing Arabic-Indic numerals</param>
+            <returns>String with Arabic-Indic numerals converted to Western numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ConvertToArabicNumerals(System.String)">
+            <summary>
+            Alias for ToArabicNumerals method
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ConvertToWesternNumerals(System.String)">
+            <summary>
+            Alias for ToWesternNumerals method
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ConvertArabicDigitsToEnglish(System.String)">
+            <summary>
+            Alias for ToWesternNumerals method
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ConvertEnglishDigitsToArabic(System.String)">
+            <summary>
+            Alias for ToArabicNumerals method
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.IntToArabicNumerals(System.Int32,System.String)">
+            <summary>
+            Converts an integer to Arabic-Indic numerals with optional formatting
+            </summary>
+            <param name="number">Integer value to convert</param>
+            <param name="format">Optional format string</param>
+            <returns>Formatted string with Arabic-Indic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.LongToArabicNumerals(System.Int64,System.String)">
+            <summary>
+            Converts a long integer to Arabic-Indic numerals with optional formatting
+            </summary>
+            <param name="number">Long integer value to convert</param>
+            <param name="format">Optional format string</param>
+            <returns>Formatted string with Arabic-Indic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.DecimalToArabicNumerals(System.Decimal,System.String)">
+            <summary>
+            Converts a decimal number to Arabic-Indic numerals with optional formatting
+            </summary>
+            <param name="number">Decimal value to convert</param>
+            <param name="format">Optional format string (default: "N2")</param>
+            <returns>Formatted string with Arabic-Indic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.DoubleToArabicNumerals(System.Double,System.String)">
+            <summary>
+            Converts a double number to Arabic-Indic numerals with optional formatting
+            </summary>
+            <param name="number">Double value to convert</param>
+            <param name="format">Optional format string (default: "N2")</param>
+            <returns>Formatted string with Arabic-Indic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.UnifyArabicText(System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Unifies Arabic text by normalizing characters and optionally converting numerals
+            </summary>
+            <param name="text">Input Arabic text</param>
+            <param name="removeTashkeel">Whether to remove Arabic diacritics (default: true)</param>
+            <param name="unifyNumerals">Whether to unify numeral types (default: true)</param>
+            <param name="preferArabicNumerals">Whether to prefer Arabic-Indic numerals (default: true)</param>
+            <returns>Unified Arabic text</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.NormalizeArabicText(System.String)">
+            <summary>
+            Normalizes Arabic text by removing diacritics and unifying character variations
+            </summary>
+            <param name="text">Input Arabic text</param>
+            <returns>Normalized Arabic text</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.NormalizeTextWithEnglishDigits(System.String)">
+            <summary>
+            Normalizes text with English digits by removing diacritics and converting to Western numerals
+            </summary>
+            <param name="text">Input text</param>
+            <returns>Normalized text with English digits</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.NormalizeTextWithArabicDigits(System.String)">
+            <summary>
+            Normalizes text with Arabic digits by removing diacritics and converting to Arabic-Indic numerals
+            </summary>
+            <param name="text">Input text</param>
+            <returns>Normalized text with Arabic-Indic digits</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.FullClean(System.String,System.Boolean)">
+            <summary>
+            Performs a full cleanup of text including whitespace normalization and character unification
+            </summary>
+            <param name="text">Input text</param>
+            <param name="useEnglishDigits">Whether to use English digits (default: true)</param>
+            <returns>Fully cleaned text</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ProcessText(System.String,NumericValidation.EG.Models.Helper.TextUnificationOptions)">
+            <summary>
+            Processes text with customizable options for unification and cleanup
+            </summary>
+            <param name="text">Input text</param>
+            <param name="options">Text unification options (uses defaults if null)</param>
+            <returns>Processed text according to specified options</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ExtractNumbers(System.String)">
+            <summary>
+            Extracts numeric characters from input string including decimal points and negative signs
+            </summary>
+            <param name="input">Input string containing mixed content</param>
+            <returns>String containing only extracted numbers</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ExtractDigitsAsEnglish(System.String)">
+            <summary>
+            Extracts digits from text and returns them as English (Western) numerals
+            </summary>
+            <param name="text">Input text</param>
+            <returns>Extracted digits as English numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ExtractDigitsAsArabic(System.String)">
+            <summary>
+            Extracts digits from text and returns them as Arabic-Indic numerals
+            </summary>
+            <param name="text">Input text</param>
+            <returns>Extracted digits as Arabic-Indic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ExtractTextOnly(System.String)">
+            <summary>
+            Extracts non-numeric text from input string
+            </summary>
+            <param name="input">Input string containing mixed content</param>
+            <returns>String containing only non-numeric text</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ExtractArabicText(System.String)">
+            <summary>
+            Extracts Arabic text along with basic punctuation
+            </summary>
+            <param name="input">Input string</param>
+            <returns>String containing only Arabic text and punctuation</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.RemoveSpecialCharacters(System.String,System.Boolean)">
+            <summary>
+            Removes special characters from input string, keeping only alphanumeric characters
+            </summary>
+            <param name="input">Input string</param>
+            <param name="keepSpaces">Whether to preserve spaces (default: true)</param>
+            <returns>String with special characters removed</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.CleanWhitespace(System.String)">
+            <summary>
+            Cleans and normalizes whitespace in text
+            </summary>
+            <param name="text">Input text</param>
+            <returns>Text with normalized whitespace</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ContainsArabicNumerals(System.String)">
+            <summary>
+            Checks if the input string contains Arabic-Indic numerals
+            </summary>
+            <param name="text">Input text to check</param>
+            <returns>True if Arabic-Indic numerals are found, otherwise false</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ContainsArabicDigits(System.String)">
+            <summary>
+            Alias for ContainsArabicNumerals method
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ContainsWesternNumerals(System.String)">
+            <summary>
+            Checks if the input string contains Western numerals
+            </summary>
+            <param name="text">Input text to check</param>
+            <returns>True if Western numerals are found, otherwise false</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ContainsEnglishDigits(System.String)">
+            <summary>
+            Alias for ContainsWesternNumerals method
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ContainsArabicLetters(System.String)">
+            <summary>
+            Checks if the input string contains Arabic letters
+            </summary>
+            <param name="text">Input text to check</param>
+            <returns>True if Arabic letters are found, otherwise false</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ContainsEnglishLetters(System.String)">
+            <summary>
+            Checks if the input string contains English letters
+            </summary>
+            <param name="text">Input text to check</param>
+            <returns>True if English letters are found, otherwise false</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.ContainsNonNormalizedArabic(System.String)">
+            <summary>
+            Checks if the input string contains non-normalized Arabic characters
+            </summary>
+            <param name="text">Input text to check</param>
+            <returns>True if non-normalized Arabic characters are found, otherwise false</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.AutoConvertNumerals(System.String,System.Boolean)">
+            <summary>
+            Automatically converts numerals based on preference and existing numeral types
+            </summary>
+            <param name="text">Input text</param>
+            <param name="preferArabic">Whether to prefer Arabic-Indic numerals (default: true)</param>
+            <returns>Text with numerals converted according to preference</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.FormatNumberArabic(System.Decimal,System.Int32)">
+            <summary>
+            Formats a decimal number with Arabic-Indic numerals and specified decimal places
+            </summary>
+            <param name="number">Decimal number to format</param>
+            <param name="decimalPlaces">Number of decimal places (default: 2)</param>
+            <returns>Formatted number string with Arabic-Indic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.FormatNumberWestern(System.Decimal,System.Int32)">
+            <summary>
+            Formats a decimal number with Western numerals and specified decimal places
+            </summary>
+            <param name="number">Decimal number to format</param>
+            <param name="decimalPlaces">Number of decimal places (default: 2)</param>
+            <returns>Formatted number string with Western numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.FormatPhoneArabic(System.String)">
+            <summary>
+            Formats a phone number with Arabic-Indic numerals and grouping
+            </summary>
+            <param name="phone">Phone number string</param>
+            <returns>Formatted phone number with Arabic-Indic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.FormatNationalIdArabic(System.String)">
+            <summary>
+            Formats a national ID number with Arabic-Indic numerals and grouping
+            </summary>
+            <param name="nationalId">National ID string</param>
+            <returns>Formatted national ID with Arabic-Indic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.NormalizeForSearch(System.String,System.Boolean)">
+            <summary>
+            Normalizes text for search operations including case normalization and optional numeral conversion
+            </summary>
+            <param name="input">Input text to normalize</param>
+            <param name="arabicNumerals">Whether to use Arabic-Indic numerals (default: false)</param>
+            <returns>Normalized text suitable for search operations</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.IsDigit(System.Char)">
+            <summary>
+            Checks if a character is a digit (either Western or Arabic-Indic)
+            </summary>
+            <param name="c">Character to check</param>
+            <returns>True if the character is a digit, otherwise false</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.IsArabicLetter(System.Char)">
+            <summary>
+            Checks if a character is an Arabic letter (excluding numerals)
+            </summary>
+            <param name="c">Character to check</param>
+            <returns>True if the character is an Arabic letter, otherwise false</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberConversionHelper.IsArabicCharacterVariation(System.Char)">
+            <summary>
+            Checks if a character is a variation of an Arabic character that needs unification
+            </summary>
+            <param name="c">Character to check</param>
+            <returns>True if the character is an Arabic variation, otherwise false</returns>
+        </member>
+        <member name="T:NumericValidation.EG.Models.Helper.NumberExtensions">
+            <summary>
+            Extension methods for number conversion and text processing - Fixed Version
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToArabicNumerals(System.Int32,System.String)">
+            <summary>
+            Converts an integer to Arabic numerals format
+            </summary>
+            <param name="number">The integer value to convert</param>
+            <param name="format">Optional format string for the number</param>
+            <returns>String representation with Arabic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToArabicNumerals(System.Int64,System.String)">
+            <summary>
+            Converts a long integer to Arabic numerals format
+            </summary>
+            <param name="number">The long integer value to convert</param>
+            <param name="format">Optional format string for the number</param>
+            <returns>String representation with Arabic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToArabicNumerals(System.Decimal,System.String)">
+            <summary>
+            Converts a decimal number to Arabic numerals format
+            </summary>
+            <param name="number">The decimal value to convert</param>
+            <param name="format">Optional format string for the number (default: "N2")</param>
+            <returns>String representation with Arabic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToArabicNumerals(System.Double,System.String)">
+            <summary>
+            Converts a double number to Arabic numerals format
+            </summary>
+            <param name="number">The double value to convert</param>
+            <param name="format">Optional format string for the number (default: "N2")</param>
+            <returns>String representation with Arabic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToArabicNumerals(System.Single,System.String)">
+            <summary>
+            Converts a float number to Arabic numerals format
+            </summary>
+            <param name="number">The float value to convert</param>
+            <param name="format">Optional format string for the number (default: "N2")</param>
+            <returns>String representation with Arabic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToArabicNumerals(System.String)">
+            <summary>
+            Converts Western numerals in a string to Arabic numerals
+            </summary>
+            <param name="input">The input string containing numerals</param>
+            <returns>String with Arabic numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToWesternNumerals(System.String)">
+            <summary>
+            Converts Arabic numerals in a string to Western numerals
+            </summary>
+            <param name="input">The input string containing numerals</param>
+            <returns>String with Western numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.UnifyArabic(System.String,System.Boolean)">
+            <summary>
+            Unifies Arabic text by standardizing letter forms and optionally removing diacritics
+            </summary>
+            <param name="input">The Arabic text to unify</param>
+            <param name="removeTashkeel">Whether to remove Arabic diacritics (tashkeel)</param>
+            <returns>Unified Arabic text</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ProcessText(System.String,NumericValidation.EG.Models.Helper.TextUnificationOptions)">
+            <summary>
+            Processes text with customizable unification options
+            </summary>
+            <param name="input">The text to process</param>
+            <param name="options">Text unification options</param>
+            <returns>Processed text</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ExtractNumbers(System.String)">
+            <summary>
+            Extracts only numeric characters from a string
+            </summary>
+            <param name="input">The input string</param>
+            <returns>String containing only numbers</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ExtractTextOnly(System.String)">
+            <summary>
+            Extracts only alphabetic characters from a string
+            </summary>
+            <param name="input">The input string</param>
+            <returns>String containing only text (no numbers or symbols)</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ExtractArabicText(System.String)">
+            <summary>
+            Extracts only Arabic text characters from a string
+            </summary>
+            <param name="input">The input string</param>
+            <returns>String containing only Arabic letters</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.RemoveSpecialChars(System.String,System.Boolean)">
+            <summary>
+            Removes special characters from a string
+            </summary>
+            <param name="input">The input string</param>
+            <param name="keepSpaces">Whether to preserve spaces</param>
+            <returns>String with special characters removed</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.CleanWhitespace(System.String)">
+            <summary>
+            Cleans up whitespace in a string by normalizing spaces
+            </summary>
+            <param name="input">The input string</param>
+            <returns>String with normalized whitespace</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ContainsArabicNumerals(System.String)">
+            <summary>
+            Checks if a string contains Arabic numerals
+            </summary>
+            <param name="text">The text to check</param>
+            <returns>True if Arabic numerals are present</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ContainsWesternNumerals(System.String)">
+            <summary>
+            Checks if a string contains Western numerals
+            </summary>
+            <param name="text">The text to check</param>
+            <returns>True if Western numerals are present</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ContainsArabicLetters(System.String)">
+            <summary>
+            Checks if a string contains Arabic letters
+            </summary>
+            <param name="text">The text to check</param>
+            <returns>True if Arabic letters are present</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ContainsEnglishLetters(System.String)">
+            <summary>
+            Checks if a string contains English letters
+            </summary>
+            <param name="text">The text to check</param>
+            <returns>True if English letters are present</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.AutoConvertNumerals(System.String,System.Boolean)">
+            <summary>
+            Automatically converts numerals in text based on preference
+            </summary>
+            <param name="text">The text to convert</param>
+            <param name="preferArabic">Prefer Arabic numerals if true, Western if false</param>
+            <returns>Text with numerals converted</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToWesternNumerals(System.Int32,System.String)">
+            <summary>
+            Converts an integer to Western numerals format
+            </summary>
+            <param name="number">The integer value to convert</param>
+            <param name="format">Optional format string for the number</param>
+            <returns>String representation with Western numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToWesternNumerals(System.Int64,System.String)">
+            <summary>
+            Converts a long integer to Western numerals format
+            </summary>
+            <param name="number">The long integer value to convert</param>
+            <param name="format">Optional format string for the number</param>
+            <returns>String representation with Western numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToWesternNumerals(System.Decimal,System.String)">
+            <summary>
+            Converts a decimal number to Western numerals format
+            </summary>
+            <param name="number">The decimal value to convert</param>
+            <param name="format">Optional format string for the number (default: "N2")</param>
+            <returns>String representation with Western numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.ToWesternNumerals(System.Double,System.String)">
+            <summary>
+            Converts a double number to Western numerals format
+            </summary>
+            <param name="number">The double value to convert</param>
+            <param name="format">Optional format string for the number (default: "N2")</param>
+            <returns>String representation with Western numerals</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.IsDigit(System.Char)">
+            <summary>
+            Determines whether a character is a digit (Western or Arabic)
+            </summary>
+            <param name="c">The character to check</param>
+            <returns>True if the character is a digit</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.Helper.NumberExtensions.IsArabicLetter(System.Char)">
+            <summary>
+            Determines whether a character is an Arabic letter
+            </summary>
+            <param name="c">The character to check</param>
+            <returns>True if the character is an Arabic letter</returns>
+        </member>
+        <member name="T:NumericValidation.EG.Models.Helper.TextUnificationOptions">
+            <summary>
+            Options for text unification and processing
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.UnifyArabicText">
+            <summary>
+            Unify Arabic text by standardizing letter forms
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.RemoveTashkeel">
+            <summary>
+            Remove Arabic diacritics (tashkeel)
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.UnifyNumerals">
+            <summary>
+            Unify numeral characters in the text
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.ConvertNumerals">
+            <summary>
+            Convert numerals between Arabic and Western forms
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.PreferArabicNumerals">
+            <summary>
+            Prefer Arabic numerals when converting
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.RemoveSpecialChars">
+            <summary>
+            Remove special characters from text
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.KeepSpaces">
+            <summary>
+            Keep spaces when removing special characters
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.ExtractNumbersOnly">
+            <summary>
+            Extract only numbers from the text
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.ExtractTextOnly">
+            <summary>
+            Extract only text (no numbers) from the input
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.Default">
+            <summary>
+            Default text unification options
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.ArabicText">
+            <summary>
+            Options optimized for Arabic text processing
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.EnglishText">
+            <summary>
+            Options optimized for English text processing
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.NumbersOnly">
+            <summary>
+            Options for extracting only numbers
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.Helper.TextUnificationOptions.TextOnly">
+            <summary>
+            Options for extracting only text (no numbers)
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NationalNumber.Constants.AgeGroupConstants">
+            <summary>
+            Age groups and categories
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.AgeGroupConstants.GetAgeGroupEnglish(System.Int32)">
+            <summary>
+            Gets age group in English based on age
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.AgeGroupConstants.GetAgeGroupArabic(System.Int32)">
+            <summary>
+            Gets age group in Arabic based on age
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NationalNumber.Constants.AgeGroupConstants.AgeCategories">
+            <summary>
+            Age categories for different life stages
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NationalNumber.Constants.ArabicConstants">
+            <summary>
+            Arabic language constants for dates, months, days, etc.
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NationalNumber.Constants.ArabicConstants.MonthNames">
+            <summary>
+            Arabic month names with English equivalents
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NationalNumber.Constants.ArabicConstants.DayNames">
+            <summary>
+            Arabic day names with English equivalents
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.ArabicConstants.GetMonthNameArabic(System.Int32)">
+            <summary>
+            Gets Arabic month name
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.ArabicConstants.GetMonthNameEnglish(System.Int32)">
+            <summary>
+            Gets English month name
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.ArabicConstants.GetDayNameArabic(System.DayOfWeek)">
+            <summary>
+            Gets Arabic day name
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.ArabicConstants.GetDayNameEnglish(System.DayOfWeek)">
+            <summary>
+            Gets English day name
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NationalNumber.Constants.CalendarConstants">
+            <summary>
+            Calendar and century constants
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NationalNumber.Constants.CalendarConstants.Centuries">
+            <summary>
+            Century names in Arabic and English
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.CalendarConstants.GetCenturyFromYear(System.Int32)">
+            <summary>
+            Gets century from year
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.CalendarConstants.GetCenturyNameArabic(System.Int32)">
+            <summary>
+            Gets Arabic century name
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.CalendarConstants.GetCenturyNameEnglish(System.Int32)">
+            <summary>
+            Gets English century name
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NationalNumber.Constants.CalendarConstants.Governorates">
+            <summary>
+            Egyptian governorates with codes
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants">
+            <summary>
+            Generation names and date ranges for birth years
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.Generations">
+            <summary>
+            List of generations with their birth year ranges
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.Generation">
+            <summary>
+            Represents a generation with multilingual names
+            </summary>
+            <param name="English">English name of the generation</param>
+            <param name="Arabic">Arabic name of the generation</param>
+            <param name="StartYear">Start year of the generation</param>
+            <param name="EndYear">End year of the generation</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.Generation.#ctor(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Represents a generation with multilingual names
+            </summary>
+            <param name="English">English name of the generation</param>
+            <param name="Arabic">Arabic name of the generation</param>
+            <param name="StartYear">Start year of the generation</param>
+            <param name="EndYear">End year of the generation</param>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.Generation.English">
+            <summary>English name of the generation</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.Generation.Arabic">
+            <summary>Arabic name of the generation</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.Generation.StartYear">
+            <summary>Start year of the generation</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.Generation.EndYear">
+            <summary>End year of the generation</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.GetGeneration(System.Int32)">
+            <summary>
+            Gets the generation for a specific birth year
+            </summary>
+            <param name="birthYear">Birth year to check</param>
+            <returns>Generation information</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.GetGenerationEnglish(System.Int32)">
+            <summary>
+            Gets English generation name for a birth year
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.GetGenerationArabic(System.Int32)">
+            <summary>
+            Gets Arabic generation name for a birth year
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.IsInGeneration(System.Int32,System.String)">
+            <summary>
+            Checks if a year belongs to a specific generation
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.GenerationConstants.GetGenerationYears(System.String)">
+            <summary>
+            Gets all people born in a specific generation
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NationalNumber.Constants.ZodiacConstants">
+            <summary>
+            List of all zodiac signs with their date ranges and names
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NationalNumber.Constants.ZodiacConstants.ZodiacSign">
+            <summary>
+            Represents information about a zodiac sign
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.ZodiacConstants.ZodiacSign.#ctor(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Represents information about a zodiac sign
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.Constants.ZodiacConstants.GetZodiacSign(System.DateTime)">
+            <summary>
+            Determines the zodiac sign for a given date
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NationalNumber.NationalIdInfo">
+            <summary>
+            Contains comprehensive information extracted from an Egyptian National ID.
+            Supports Arabic and English output for all fields.
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.IsValid">
+            <summary>Indicates if the National ID is valid.</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.ErrorMessage">
+            <summary>Error message if invalid.</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.NationalId">
+            <summary>The original National ID string.</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.Year">
+            <summary>Birth year (numeric).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.Month">
+            <summary>Birth month (numeric 1-12).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.Day">
+            <summary>Birth day (numeric 1-31).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.BirthDate">
+            <summary>Birth date as DateTime object.</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.Century">
+            <summary>Century value (1800, 1900, or 2000).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.IsLeapYear">
+            <summary>Indicates if the birth year is a leap year.</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.YearText">
+            <summary>Birth year as text in English (e.g., "1995").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.MonthNameEnglish">
+            <summary>Month name in English (e.g., "January").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.DayText">
+            <summary>Day as text in English (e.g., "15").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.DayOfWeekEnglish">
+            <summary>Day of week in English (e.g., "Friday").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.BirthDateFullEnglish">
+            <summary>Full birth date in English (e.g., "Friday, January 15, 1995").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.BirthDateShortEnglish">
+            <summary>Birth date in short English format (e.g., "01/15/1995").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.BirthDateISO">
+            <summary>Birth date in ISO format (e.g., "1995-01-15").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.CenturyNameEnglish">
+            <summary>Century name in English (e.g., "Twentieth").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.LeapYearStatusEnglish">
+            <summary>Leap year status in English (e.g., "Leap Year" or "Regular Year").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.DaysInMonth">
+            <summary>Days in birth month (e.g., 31 for January).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.DaysInMonthText">
+            <summary>Days in birth month as text (e.g., "31 days").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.YearTextArabic">
+            <summary>Birth year as text in Arabic (e.g., "١٩٩٥").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.MonthNameArabic">
+            <summary>Month name in Arabic (e.g., "يناير").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.DayTextArabic">
+            <summary>Day as text in Arabic (e.g., "١٥").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.DayOfWeekArabic">
+            <summary>Day of week in Arabic (e.g., "الجمعة").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.BirthDateFullArabic">
+            <summary>Full birth date in Arabic (e.g., "الجمعة، 15 يناير 1995").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.BirthDateShortArabic">
+            <summary>Birth date in short Arabic format (e.g., "١٥/٠١/١٩٩٥").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.CenturyNameArabic">
+            <summary>Century name in Arabic (e.g., "العشرون").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.LeapYearStatusArabic">
+            <summary>Leap year status in Arabic (e.g., "سنة كبيسة" or "سنة عادية").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.DaysInMonthArabic">
+            <summary>Days in birth month in Arabic (e.g., "٣١ يوم").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.Age">
+            <summary>Current age in years (numeric).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeInMonths">
+            <summary>Age in months (numeric).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeInDays">
+            <summary>Age in days (numeric).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeYears">
+            <summary>Years component for detailed age.</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeMonthsComponent">
+            <summary>Months component for detailed age (0-11).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeDaysComponent">
+            <summary>Days component for detailed age (0-30).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeTextEnglish">
+            <summary>Age in English (e.g., "28 years old").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeDetailedEnglish">
+            <summary>Detailed age in English (e.g., "28 years, 3 months, 15 days").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeGroupEnglish">
+            <summary>Age group in English (e.g., "Adult", "Child", "Senior").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.GenerationEnglish">
+            <summary>Generation in English (e.g., "Gen Z", "Millennial").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeTextArabic">
+            <summary>Age in Arabic (e.g., "٢٨ سنة").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeDetailedArabic">
+            <summary>Detailed age in Arabic (e.g., "٢٨ سنة، ٣ أشهر، ١٥ يوم").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.AgeGroupArabic">
+            <summary>Age group in Arabic (e.g., "بالغ", "طفل", "مسن").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.GenerationArabic">
+            <summary>Generation in Arabic (e.g., "جيل زد", "جيل الألفية").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.GovernorateCode">
+            <summary>Governorate code (e.g., "001" for Cairo).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.GovernorateNameArabic">
+            <summary>Governorate name in Arabic (e.g., "القاهرة").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.GovernorateNameEnglish">
+            <summary>Governorate name in English (e.g., "Cairo").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.GovernorateCodeArabic">
+            <summary>Governorate code in Arabic numerals (e.g., "٠٠١").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.Gender">
+            <summary>Gender in English ("Male" or "Female").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.GenderArabic">
+            <summary>Gender in Arabic ("ذكر" or "أنثى").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.GenderSymbol">
+            <summary>Gender symbol ("♂" or "♀").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.SerialNumber">
+            <summary>Serial number (positions 11-13 in ID).</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.SerialNumberArabic">
+            <summary>Serial number in Arabic numerals.</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.ZodiacSignEnglish">
+            <summary>Zodiac sign in English (e.g., "Capricorn").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.ZodiacSignArabic">
+            <summary>Zodiac sign in Arabic (e.g., "الجدي").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.ZodiacSymbol">
+            <summary>Zodiac symbol (e.g., "♑").</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.SummaryEnglish">
+            <summary>Complete summary in English.</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.SummaryArabic">
+            <summary>Complete summary in Arabic.</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.CalculateAge(System.DateTime)">
+            <summary>Calculates current age from birth date.</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.CalculateAgeInMonths(System.DateTime)">
+            <summary>Calculates age in total months.</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.CalculateAgeMonths(System.DateTime)">
+            <summary>Calculates months component of age.</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.CalculateAgeDays(System.DateTime)">
+            <summary>Calculates days component of age.</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.ToString">
+            <summary>Returns a comprehensive string representation of the National ID information in both Arabic and English.</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.ToStringEnglish">
+            <summary>Returns a compact string representation in English only.</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.ToStringArabic">
+            <summary>Returns a compact string representation in Arabic only.</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.ToStringDetailedEnglish">
+            <summary>Returns detailed information in English only.</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdInfo.ToStringDetailedArabic">
+            <summary>Returns detailed information in Arabic only.</summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NationalNumber.NationalIdParser">
+            <summary>
+            Enhanced parser for Egyptian National ID with advanced validation and batch processing.
+            Includes leap year validation and date correction for invalid days.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Default constructor with optional strict mode.
+            </summary>
+            <param name="strictMode">If true, enables additional validations.</param>
+            <param name="autoCorrectInvalidDays">If true, automatically corrects invalid days (e.g., Feb 30 to Feb 28/29).</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor with single National ID.
+            </summary>
+            <param name="nationalId">National ID as string.</param>
+            <param name="autoCorrectInvalidDays">If true, automatically corrects invalid days.</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.#ctor(System.Int64,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor with single National ID as long.
+            </summary>
+            <param name="nationalId">National ID as long integer.</param>
+            <param name="strictMode">Enable strict validation mode.</param>
+            <param name="autoCorrectInvalidDays">If true, automatically corrects invalid days.</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.#ctor(System.String[],System.Boolean)">
+            <summary>
+            Constructor with multiple National IDs.
+            </summary>
+            <param name="nationalIds">Array of National IDs.</param>
+            <param name="autoCorrectInvalidDays">If true, automatically corrects invalid days.</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.#ctor(System.Int64[],System.Boolean)">
+            <summary>
+            Constructor with multiple National IDs as long.
+            </summary>
+            <param name="nationalIds">Array of National IDs as long integers.</param>
+            <param name="autoCorrectInvalidDays">If true, automatically corrects invalid days.</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.#ctor(System.String,System.Char,System.Boolean)">
+            <summary>
+            Constructor with comma-separated National IDs.
+            </summary>
+            <param name="commaSeparated">Comma-separated National IDs.</param>
+            <param name="separator">Separator character to use (default: comma).</param>
+            <param name="autoCorrectInvalidDays">If true, automatically corrects invalid days.</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Constructor with collection of National IDs.
+            </summary>
+            <param name="nationalIds">Collection of National IDs.</param>
+            <param name="autoCorrectInvalidDays">If true, automatically corrects invalid days.</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.EnableStrictMode">
+            <summary>
+            Enables strict validation mode.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.DisableStrictMode">
+            <summary>
+            Disables strict validation mode.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.EnableAutoCorrectDays">
+            <summary>
+            Enables automatic correction of invalid days (e.g., Feb 30 to Feb 28/29).
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.DisableAutoCorrectDays">
+            <summary>
+            Disables automatic correction of invalid days.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.SetAgeRange(System.Int32,System.Int32)">
+            <summary>
+            Sets age range validation.
+            </summary>
+            <param name="minAge">Minimum age.</param>
+            <param name="maxAge">Maximum age.</param>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.AddNationalId(System.String)">
+            <summary>
+            Adds a National ID to the parser.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.AddNationalId(System.Int64)">
+            <summary>
+            Adds a National ID as long to the parser.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.AddNationalIds(System.String)">
+            <summary>
+            Adds multiple National IDs from comma-separated string.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ValidateDateWithLeapYear(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Validates if a date is valid considering leap years.
+            </summary>
+            <param name="year">Year to validate.</param>
+            <param name="month">Month to validate.</param>
+            <param name="day">Day to validate.</param>
+            <param name="correctedDay">Output parameter with corrected day if invalid.</param>
+            <returns>True if date is valid, false otherwise.</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.IsLeapYear(System.Int32)">
+            <summary>
+            Checks if a year is a leap year.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GetDaysInMonth(System.Int32,System.Int32)">
+            <summary>
+            Gets the number of days in a specific month considering leap years.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.Parse(System.String)">
+            <summary>
+            Parses a 14-digit Egyptian National ID with enhanced validation including leap year checks.
+            </summary>
+            <param name="nationalId">The 14-digit national ID.</param>
+            <returns>A <see cref="T:NumericValidation.EG.Models.NationalNumber.NationalIdInfo"/> object containing all extracted information.</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.Parse(System.Int64)">
+            <summary>
+            Parses a National ID as long.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ParseAll">
+            <summary>
+            Parses all National IDs in the parser.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GetValidIds">
+            <summary>
+            Parses and returns only valid National IDs.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GetInvalidIds">
+            <summary>
+            Parses and returns only invalid National IDs.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ParseSingle(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Static method to parse a single National ID.
+            </summary>
+            <param name="nationalId">National ID to parse.</param>
+            <param name="strictMode">Enable strict validation mode.</param>
+            <param name="autoCorrectInvalidDays">Automatically correct invalid days (e.g., Feb 30 to Feb 28/29).</param>
+            <returns>Parsed National ID information.</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ParseSingle(System.Int64,System.Boolean,System.Boolean)">
+            <summary>
+            Static method to parse a National ID as long.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ParseCommaSeparated(System.String,System.Boolean)">
+            <summary>
+            Static method to parse comma-separated National IDs.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ParseList(System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Static method to parse a list of National IDs.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ParseList(System.Collections.Generic.IEnumerable{System.Int64},System.Boolean)">
+            <summary>
+            Static method to parse a list of National IDs as long.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ValidateDate(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Validates date with leap year consideration.
+            </summary>
+            <param name="year">Year to validate.</param>
+            <param name="month">Month to validate.</param>
+            <param name="day">Day to validate.</param>
+            <returns>True if date is valid, false otherwise.</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.IsLeapYearFromId(System.String)">
+            <summary>
+            Checks if a year from a National ID is a leap year.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.IsValidFormat(System.String)">
+            <summary>
+            Quick validation without full parsing.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ExtractBirthDate(System.String,System.Boolean)">
+            <summary>
+            Extracts birth date from National ID without full parsing.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.CalculateAgeFromId(System.String)">
+            <summary>
+            Calculates age from National ID.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GetSupportedGovernorates">
+            <summary>
+            Gets all supported governorates.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.IsValidGovernorate(System.String)">
+            <summary>
+            Checks if a governorate code is valid.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.ValidateDateDetailed(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Validates a date and returns detailed information including leap year status.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GetStatistics">
+            <summary>
+            Gets statistics about parsed National IDs.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GroupByGovernorate">
+            <summary>
+            Groups valid IDs by governorate.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GroupByLeapYear">
+            <summary>
+            Groups valid IDs by leap year status.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GetByGovernorate(System.String)">
+            <summary>
+            Gets IDs from a specific governorate.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GetBornInLeapYears">
+            <summary>
+            Gets IDs born in leap years.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.GetCorrectedDates">
+            <summary>
+            Gets IDs with corrected dates (if auto-correct was enabled).
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.CleanNationalId(System.String)">
+            <summary>
+            Cleans National ID from spaces, dashes, and special characters.
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NationalNumber.NationalIdParser.CalculateAge(System.DateTime)">
+            <summary>
+            Calculates age from birth date.
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords">
+            <summary>
+            Arabic number words for different numeric values
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords.OnesForTens">
+            <summary>
+            Used when the number is in the tens place (e.g., واحد وعشرون - twenty-one)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords.OnesAlone">
+            <summary>
+            Used when the number stands alone (0-9)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords.OnesForPlural">
+            <summary>
+            Used with plural scale words (thousands, millions)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords.Tens">
+            <summary>
+            Tens (10-90)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords.Hundreds">
+            <summary>
+            Hundreds (100-900) - Fixed with correct Arabic forms
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords.Teens">
+            <summary>
+            Numbers from 10 to 19 - Special forms in Arabic
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords.Scales">
+            <summary>
+            Scale words (thousands, millions, etc.) in singular form
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords.ScalesDual">
+            <summary>
+            Scale words in dual form (for number 2)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.ArabicNumberWords.ScalesPlural">
+            <summary>
+            Scale words in plural form (for numbers 3-10)
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NumbersToText.ConversionResult">
+            <summary>
+            Result of number-to-words conversion with detailed information
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.ConversionResult.OriginalNumber">
+            <summary>The original decimal number before conversion</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.ConversionResult.IsNegative">
+            <summary>Indicates whether the number is negative</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.ConversionResult.IntegerPart">
+            <summary>Integer part of the number</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.ConversionResult.FractionalPart">
+            <summary>Fractional part of the number (as integer without decimal point)</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.ConversionResult.IntegerPartInWords">
+            <summary>Integer part converted to words</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.ConversionResult.FractionalPartInWords">
+            <summary>Fractional part converted to words</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.ConversionResult.FullText">
+            <summary>Complete number converted to words including currency/unit</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.ConversionResult.Language">
+            <summary>Language used for conversion</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.ConversionResult.Currency">
+            <summary>Currency/unit used for conversion (if applicable)</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NumbersToText.ConversionResult.ToString">
+            <summary>
+            Returns the full converted text
+            </summary>
+            <returns>The complete number in words</returns>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter">
+            <summary>
+            Converts numbers to words in different languages
+            </summary>
+            <summary>
+            Advanced number to words converter supporting Arabic and English languages with multi-currency support
+            (Arabic grammar fixed, no extra 'and', precise fractions)
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency">
+            <summary>
+            Supported currencies for number-to-words conversion
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.EGP">
+            <summary>Egyptian Pound / جنيه مصري</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.USD">
+            <summary>United States Dollar / دولار أمريكي</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.EUR">
+            <summary>Euro / يورو</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.GBP">
+            <summary>British Pound / جنيه إسترليني</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.SAR">
+            <summary>Saudi Riyal / ريال سعودي</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.AED">
+            <summary>UAE Dirham / درهم إماراتي</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.KWD">
+            <summary>Kuwaiti Dinar / دينار كويتي</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.QAR">
+            <summary>Qatari Riyal / ريال قطري</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.BHD">
+            <summary>Bahraini Dinar / دينار بحريني</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.OMR">
+            <summary>Omani Rial / ريال عماني</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.JOD">
+            <summary>Jordanian Dinar / دينار أردني</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.LBP">
+            <summary>Lebanese Pound / ليرة لبنانية</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.SYP">
+            <summary>Syrian Pound / ليرة سورية</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.IQD">
+            <summary>Iraqi Dinar / دينار عراقي</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.YER">
+            <summary>Yemeni Rial / ريال يمني</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.MAD">
+            <summary>Moroccan Dirham / درهم مغربي</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.TND">
+            <summary>Tunisian Dinar / دينار تونسي</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.DZD">
+            <summary>Algerian Dinar / دينار جزائري</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.LYD">
+            <summary>Libyan Dinar / دينار ليبي</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.SDG">
+            <summary>Sudanese Pound / جنيه سوداني</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency.Generic">
+            <summary>Generic currency without subunits / عملة عامة بدون وحدات فرعية</summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Language">
+            <summary>
+            Supported languages for number-to-words conversion
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Language.Arabic">
+            <summary>Arabic language number conversion</summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Language.English">
+            <summary>English language number conversion</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Convert(System.Decimal,NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Language,NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency,System.Boolean)">
+            <summary>
+            Converts a number to words with optional currency
+            </summary>
+            <param name="number">The decimal number to convert</param>
+            <param name="language">Language for conversion (Arabic/English)</param>
+            <param name="currency">Currency type for monetary amounts</param>
+            <param name="includeCurrency">Whether to include currency names in output</param>
+            <returns>Number converted to words in specified language</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.ConvertToArabic(System.Decimal)">
+            <summary>
+            Converts number to Arabic words without currency
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.ConvertToEnglish(System.Decimal)">
+            <summary>
+            Converts number to English words without currency
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.GetSupportedCurrencies">
+            <summary>
+            Returns all supported currencies and their configurations
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.ConvertWithDetails(System.Decimal,NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Language,NumericValidation.EG.Models.NumbersToText.NumberToWordsConverter.Currency)">
+            <summary>
+            Converts number with detailed breakdown of conversion parts
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NumbersToText.CurrencyConfigurations">
+            <summary>
+            Supported currency configurations
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.NumbersToText.CurrencyConfigurations.CurrencyData">
+            <summary>
+            Dictionary containing all supported currencies with their linguistic configurations
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NumbersToText.CurrencyInfo">
+            <summary>
+            Contains detailed information about a currency for number-to-words conversion
+            Supports singular, dual, plural forms in Arabic and singular/plural in English
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.CurrencyInfo.HasSubunit">
+            <summary>Indicates whether the currency has subunits</summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.NumbersToText.CurrencyInfo.SubunitFactor">
+            <summary>Conversion factor between main unit and subunit (e.g., 100 for most currencies, 1000 for KWD)</summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.NumbersToText.CurrencyInfo.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the CurrencyInfo class
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.NumbersToText.EnglishNumberWords">
+            <summary>
+            English number words for different numeric ranges
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.PhoneNumber.CarrierData">
+            <summary>
+            Carrier data and prefix information for Egyptian phone numbers
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.CarrierData.CarrierPrefixes">
+            <summary>
+            Comprehensive dictionary of all Egyptian prefixes - 100% complete
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.CarrierData.GetSupportedPrefixes">
+            <summary>
+            Gets all supported carrier prefixes
+            </summary>
+            <returns>Dictionary of all supported prefixes</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.CarrierData.GetCarriers">
+            <summary>
+            Gets all carriers operating in Egypt
+            </summary>
+            <returns>List of unique carriers</returns>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.CarrierData.IsCarrierPrefix(System.String,System.String)">
+            <summary>
+            Checks if a prefix belongs to a specific carrier
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.CarrierData.GetPrefixesForCarrier(System.String)">
+            <summary>
+            Gets prefixes for a specific carrier
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.CarrierData.GetCarrierInfo(System.String)">
+            <summary>
+            Gets detailed information about a carrier
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.CarrierData.GetServiceType(System.String)">
+            <summary>
+            Determines service type based on carrier name
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo">
+            <summary>
+            Contains comprehensive information about a phone number validation result.
+            This class represents the parsed and validated data for Egyptian phone numbers.
+            </summary>
+            <remarks>
+            The PhoneNumberInfo class is the primary data structure returned by phone number
+            validation operations. It contains both the original input and parsed components
+            with validation status and carrier information.
+            </remarks>
+            <example>
+            <code>
+            var validator = new PhoneNumberValidator();
+            var result = validator.Parse("01234567890");
+            
+            if (result.IsValid)
+            {
+                Console.WriteLine($"Number: {result.Number}");
+                Console.WriteLine($"Carrier: {result.Carrier}");
+                Console.WriteLine($"Service Type: {result.ServiceType}");
+            }
+            else
+            {
+                Console.WriteLine($"Error: {result.ErrorMessage}");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.OriginalNumber">
+            <summary>
+            Gets or sets the original input phone number as provided by the user.
+            </summary>
+            <value>
+            The raw phone number string exactly as entered, including any formatting,
+            spaces, or special characters.
+            </value>
+            <remarks>
+            This property preserves the exact user input for audit trails and
+            debugging purposes. It is not modified during the validation process.
+            </remarks>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.CleanedNumber">
+            <summary>
+            Gets or sets the phone number after cleaning and normalization.
+            </summary>
+            <value>
+            The phone number with all non-digit characters removed, but before
+            any country code or prefix transformations.
+            </value>
+            <remarks>
+            This intermediate representation is used internally during validation
+            and contains only numeric digits.
+            </remarks>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.Number">
+            <summary>
+            Gets or sets the final formatted phone number in local format.
+            </summary>
+            <value>
+            The complete phone number in standard Egyptian format (e.g., "01234567890").
+            This is the canonical representation used for storage and display.
+            </value>
+            <remarks>
+            The number includes the carrier prefix and subscriber number in a
+            consistent format without international dialing codes.
+            </remarks>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.Prefix">
+            <summary>
+            Gets or sets the carrier prefix (first 4 digits of the phone number).
+            </summary>
+            <value>
+            A 4-digit string representing the carrier-specific prefix that identifies
+            the mobile network operator (e.g., "0123" for Vodafone Egypt).
+            </value>
+            <remarks>
+            The prefix determines both the carrier and service type. Each prefix
+            is assigned to specific mobile operators by the National Telecom Regulatory Authority (NTRA).
+            </remarks>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.Carrier">
+            <summary>
+            Gets or sets the mobile network carrier name.
+            </summary>
+            <value>
+            The name of the telecom operator providing service for this number
+            (e.g., "Vodafone Egypt", "Orange Egypt", "Etisalat Misr", "We").
+            </value>
+            <remarks>
+            Carrier information is derived from the prefix using NTRA's official
+            numbering plan for Egypt.
+            </remarks>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.ServiceType">
+            <summary>
+            Gets or sets the type of telecommunication service.
+            </summary>
+            <value>
+            A string describing the service category: "Mobile" for regular mobile
+            numbers or "Value Added Service" for special service numbers.
+            </value>
+            <remarks>
+            Service type classification helps differentiate between standard
+            mobile services and premium/specialized services with different
+            billing rates and regulations.
+            </remarks>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.IsValid">
+            <summary>
+            Gets or sets a value indicating whether the phone number is valid.
+            </summary>
+            <value>
+            <c>true</c> if the phone number passes all validation checks including
+            format, length, and prefix verification; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            This property represents the overall validation status. When false,
+            the <see cref="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.ErrorMessage"/> property contains details about the
+            validation failure.
+            </remarks>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.ErrorMessage">
+            <summary>
+            Gets or sets the error message describing validation failure.
+            </summary>
+            <value>
+            A descriptive error message in Arabic and English explaining why
+            the phone number failed validation. Empty string when validation succeeds.
+            </value>
+            <remarks>
+            Error messages are designed to be user-friendly and help identify
+            specific issues with the input phone number.
+            </remarks>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.ToString">
+            <summary>
+            Returns a string representation of the phone number validation result.
+            </summary>
+            <returns>
+            A formatted string containing key validation information including
+            the phone number, validation status, carrier, and any error message.
+            </returns>
+            <remarks>
+            This method is primarily used for debugging and logging purposes.
+            The format is: "Number: {Number}, IsValid: {IsValid}, Carrier: {Carrier}, ErrorMessage: {ErrorMessage}"
+            </remarks>
+            <example>
+            <code>
+            var info = new PhoneNumberInfo 
+            { 
+                Number = "01234567890", 
+                IsValid = true, 
+                Carrier = "Vodafone Egypt",
+                ErrorMessage = ""
+            };
+            Console.WriteLine(info.ToString());
+            // Output: "Number: 01234567890, IsValid: True, Carrier: Vodafone Egypt, ErrorMessage: "
+            </code>
+            </example>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>
+            <c>true</c> if the specified object is equal to the current object; otherwise, <c>false</c>.
+            </returns>
+            <remarks>
+            Two PhoneNumberInfo objects are considered equal if their <see cref="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.Number"/>
+            properties are equal, regardless of other properties.
+            </remarks>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+            <returns>A hash code for the current object.</returns>
+            <remarks>
+            The hash code is based on the <see cref="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.Number"/> property.
+            </remarks>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.Clone">
+            <summary>
+            Creates a deep copy of the current PhoneNumberInfo object.
+            </summary>
+            <returns>A new PhoneNumberInfo object with the same property values.</returns>
+            <remarks>
+            This method creates a completely independent copy that can be
+            modified without affecting the original object.
+            </remarks>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.ToInternationalFormat">
+            <summary>
+            Formats the phone number for international dialing.
+            </summary>
+            <returns>The phone number in international format with Egypt country code (+20).</returns>
+            <remarks>
+            This method assumes the number is already in valid Egyptian format.
+            It prepends the international access code and Egypt country code.
+            </remarks>
+            <example>
+            <code>
+            var info = new PhoneNumberInfo { Number = "01234567890" };
+            string international = info.ToInternationalFormat();
+            // Result: "+201234567890"
+            </code>
+            </example>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.ToDisplayFormat">
+            <summary>
+            Formats the phone number for display with standard spacing.
+            </summary>
+            <returns>The phone number formatted with spaces for readability.</returns>
+            <remarks>
+            The standard Egyptian format is: 0XXX XXX XXXX (e.g., "0123 456 7890")
+            </remarks>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberInfo.IsComplete">
+            <summary>
+            Validates that all required properties are populated for a valid phone number.
+            </summary>
+            <returns><c>true</c> if the object represents a complete valid phone number; otherwise, <c>false</c>.</returns>
+            <remarks>
+            This method performs additional consistency checks beyond the basic IsValid flag,
+            ensuring that all derived properties are correctly populated.
+            </remarks>
+        </member>
+        <member name="T:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator">
+            <summary>
+            Validates Egyptian mobile numbers with multiple input formats support
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor">
+            <summary>
+            Default constructor - creates empty validator with default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Constructor with custom validation options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(System.String)">
+            <summary>
+            Constructor with single phone number and default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(System.String,NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Constructor with single phone number and custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(System.Int64)">
+            <summary>
+            Constructor with single phone number as long integer
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(System.String[])">
+            <summary>
+            Constructor with multiple phone numbers as string array
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(NumericValidation.EG.Models.PhoneNumber.ValidationOptions,System.String[])">
+            <summary>
+            Constructor with multiple phone numbers and custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(System.Int64[])">
+            <summary>
+            Constructor with multiple phone numbers as long array
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor with comma-separated phone numbers string
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Constructor with collection of phone numbers
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.#ctor(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Constructor with collection of phone numbers as integers
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.Options">
+            <summary>
+            Gets or sets the validation options for this validator instance
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.Count">
+            <summary>
+            Gets the count of phone numbers currently in the validator
+            </summary>
+        </member>
+        <member name="P:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.Numbers">
+            <summary>
+            Gets all phone numbers currently in the validator
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.Clear">
+            <summary>
+            Clears all phone numbers from the validator
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.RemoveDuplicates">
+            <summary>
+            Removes duplicate phone numbers from the list
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.SetOptions(NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Updates the validation options for this validator
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ResetOptions">
+            <summary>
+            Resets validation options to default
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.AddNumber(System.String)">
+            <summary>
+            Adds a phone number to the validator
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.AddNumber(System.Int64)">
+            <summary>
+            Adds a phone number as integer to the validator
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.AddNumbers(System.String)">
+            <summary>
+            Adds multiple phone numbers from comma-separated string
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.AddNumbers(System.String[])">
+            <summary>
+            Adds multiple phone numbers from array
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateAll">
+            <summary>
+            Validates all phone numbers in the validator using current options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateAll(NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Validates all phone numbers using custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GetValidNumbers">
+            <summary>
+            Validates all phone numbers and returns only valid ones
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GetInvalidNumbers">
+            <summary>
+            Validates all phone numbers and returns only invalid ones
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GetValidationSummary">
+            <summary>
+            Gets validation summary with carrier distribution
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GroupByCarrier">
+            <summary>
+            Gets phone numbers grouped by carrier
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ExportValidNumbers">
+            <summary>
+            Exports valid numbers to a comma-separated string
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ExportValidNumbers(System.String)">
+            <summary>
+            Exports valid numbers with specified format
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.Validate(System.String)">
+            <summary>
+            Validates a single Egyptian mobile number with default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.Validate(System.String,NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Validates a single Egyptian mobile number with custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.Validate(System.Int64)">
+            <summary>
+            Validates a phone number as integer with default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.Validate(System.Int64,NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Validates a phone number as integer with custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateCommaSeparated(System.String)">
+            <summary>
+            Validates multiple phone numbers from comma-separated string with default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateCommaSeparated(System.String,NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Validates multiple phone numbers from comma-separated string with custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateList(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Validates a list of phone numbers with default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateList(System.Collections.Generic.IEnumerable{System.String},NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Validates a list of phone numbers with custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateList(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Validates a list of phone numbers as integers with default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateList(System.Collections.Generic.IEnumerable{System.Int64},NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Validates a list of phone numbers as integers with custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.IsValid(System.String)">
+            <summary>
+            Quick validation - returns true/false without details using default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.IsValid(System.String,NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Quick validation - returns true/false without details using custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.IsValid(System.Int64)">
+            <summary>
+            Quick validation for integer numbers with default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.IsValid(System.Int64,NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Quick validation for integer numbers with custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GetSupportedPrefixes">
+            <summary>
+            Gets all supported carrier prefixes
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GetCarriers">
+            <summary>
+            Gets all carriers operating in Egypt
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.IsCarrierPrefix(System.String,System.String)">
+            <summary>
+            Checks if a prefix belongs to a specific carrier
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GetPrefixesForCarrier(System.String)">
+            <summary>
+            Gets prefixes for a specific carrier
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.IsFromCarrier(System.String,System.String)">
+            <summary>
+            Checks if a number is from a specific carrier using default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.IsFromCarrier(System.String,System.String,NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Checks if a number is from a specific carrier using custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GetCarrierInfo(System.String)">
+            <summary>
+            Gets detailed information about a carrier
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.CleanPhoneNumber(System.String,NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Cleans phone number from special characters and spaces based on options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ConvertArabicIndicDigits(System.String)">
+            <summary>
+            Converts Arabic Indic numerals to Latin numerals
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.NormalizeToLocalFormat(System.String,NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Normalizes international format to local Egyptian format based on options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GetServiceType(System.String,System.String)">
+            <summary>
+            Determines service type based on prefix
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateBatch(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            Validates a large batch of phone numbers with progress reporting using default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ValidateBatch(System.Collections.Generic.IEnumerable{System.String},NumericValidation.EG.Models.PhoneNumber.ValidationOptions,System.Int32)">
+            <summary>
+            Validates a large batch of phone numbers with progress reporting using custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.FilterValidNumbers(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Filters valid numbers from a list using default options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.FilterValidNumbers(System.Collections.Generic.IEnumerable{System.String},NumericValidation.EG.Models.PhoneNumber.ValidationOptions)">
+            <summary>
+            Filters valid numbers from a list using custom options
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.FormatNumber(System.String)">
+            <summary>
+            Formats phone number to standard Egyptian format
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.FormatNumber(System.String,System.String)">
+            <summary>
+            Formats phone number with custom format
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.ExtractDigits(System.String)">
+            <summary>
+            Extracts just the digits from a phone number
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.AreSameNumber(System.String,System.String)">
+            <summary>
+            Checks if two phone numbers are the same (after normalization)
+            </summary>
+        </member>
+        <member name="M:NumericValidation.EG.Models.PhoneNumber.PhoneNumberValidator.GenerateSampleNumbers(System.String,System.Int32)">
+            <summary>
+            Generates sample phone numbers for a specific carrier
+            </summary>
+        </member>
+        <member name="T:NumericValidation.EG.Models.PhoneNumber.ValidationOptions">
+            <summary>
+            Supported phone number formats and validation options
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.ValidationOptions.None">
+            <summary>
+            No special options
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.ValidationOptions.AcceptInternationalFormats">
+            <summary>
+            Accept numbers with international format (+20)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.ValidationOptions.AcceptNumbersWithoutLeadingZero">
+            <summary>
+            Accept numbers without leading zero (10XXXXXXXXX)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.ValidationOptions.AcceptFormattedNumbers">
+            <summary>
+            Accept formatted numbers with spaces, dashes, etc.
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.ValidationOptions.AcceptArabicIndicNumerals">
+            <summary>
+            Accept Arabic/Indic numerals (٠١٢٣٤٥٦٧٨٩)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.ValidationOptions.ValidateSpecialServices">
+            <summary>
+            Validate special service numbers (019XXXXXXX)
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.ValidationOptions.AutoFixIncompleteNumbers">
+            <summary>
+            Auto-fix incomplete numbers by adding missing digits
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.ValidationOptions.StrictCarrierValidation">
+            <summary>
+            Strict carrier validation - only accept prefixes in dictionary
+            </summary>
+        </member>
+        <member name="F:NumericValidation.EG.Models.PhoneNumber.ValidationOptions.Default">
+            <summary>
+            Default validation options (balanced between strictness and flexibility)
+            </summary>
+        </member>
+    </members>
+</doc>
