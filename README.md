@@ -1066,15 +1066,10 @@ SOFTWARE.
 
 ## 🆘 Support
 
-- **GitHub Issues**: [Report Bugs](https://github.com/your-repo/issues)
-- **GitHub Discussions**: [Ask Questions](https://github.com/your-repo/discussions)
-- **Email**: support@numericvalidation.eg
-- **Documentation**: [Full Documentation](https://docs.numericvalidation.eg)
+
 
 ### Community:
-- **Stack Overflow**: Tag your questions with `#numericvalidation-eg`
-- **Discord**: Join our community server
-- **Twitter**: Follow @NumericValidationEG for updates
+
 
 ### Enterprise Support:
 - **Priority Support**: Available for enterprise customers
@@ -1086,3 +1081,4 @@ SOFTWARE.
 **Happy Coding!** 🚀
 
 *Built with ❤️ for the Egyptian developer community*
+
