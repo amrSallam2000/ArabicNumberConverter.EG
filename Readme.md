@@ -59,7 +59,7 @@
 
 ## ✨ Features
 
-### 💳 Bank Card Validation (v1.0.3+)
+### 💳 Bank Card Validation (v1.0.5.+)
 - **Full PAN validation** with Luhn algorithm (ISO/IEC 7812-1:2017 §6)
 - **Network detection** for Visa, Mastercard, Amex, Meeza, UnionPay, JCB, Discover, Diners Club, Maestro, and **30+ global networks**
 - Complete **Egyptian bank database** — all banks licensed by the Central Bank of Egypt (CBE)
@@ -109,16 +109,16 @@
 
 ```xml
 <!-- Package Manager Console -->
-Install-Package NumericValidation.EG -Version 1.0.3
+Install-Package NumericValidation.EG -Version 1.0.5.
 
 <!-- .NET CLI -->
-dotnet add package NumericValidation.EG --version 1.0.3
+dotnet add package NumericValidation.EG --version 1.0.5.
 
 <!-- .csproj -->
-<PackageReference Include="NumericValidation.EG" Version="1.0.3" />
+<PackageReference Include="NumericValidation.EG" Version="1.0.5." />
 ```
 
-**Target frameworks:** .NET 6, .NET 7, .NET 8+, .NET 9
+**Target frameworks:** .NET 5,NET 6, .NET 7, .NET 8+, .NET 9
 
 **No external NuGet dependencies** — all modules rely exclusively on `System.*` from the BCL.
 
@@ -869,7 +869,7 @@ var info = new BankCardValidator().Analyze(cardNumber);
 
 ## 🔧 API Reference
 
-### Bank Card Classes (v1.0.3+)
+### Bank Card Classes (v1.0.5.+)
 
 | Class | Description | Key Members |
 |-------|-------------|-------------|
@@ -1629,4 +1629,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 *Built with ❤️ for the Egyptian developer community*
 
-**v1.0.3** — Now with complete Bank Card Validation · 💳 Meeza · 🏦 30+ Egyptian Banks · 🔐 PCI-DSS v4.0
+**v1.0.5.** — Now with complete Bank Card Validation · 💳 Meeza · 🏦 30+ Egyptian Banks · 🔐 PCI-DSS v4.0
