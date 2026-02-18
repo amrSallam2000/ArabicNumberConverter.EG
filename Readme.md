@@ -1,9 +1,9 @@
-﻿# NumericValidation.EG
+# NumericValidation.EG
 
 ### A Comprehensive .NET Library for Egyptian Numbers & Payment Card Validation
 
-[![NuGet](https://img.shields.io/nuget/v/NumericValidation.EG?color=blue&label=NuGet)](https://www.nuget.org/packages/NumericValidation.EG)
-[![.NET](https://img.shields.io/badge/.NET-6%2B-purple)](https://dotnet.microsoft.com)
+[![NuGet](https://img.shields.io/nuget/v/NumericValidation.EG?color=blue&label=NuGet)](https://www.nuget.org/packages/ArabicNumberConverter.EG/)
+[![.NET](https://img.shields.io/badge/.NET-5%2B-purple)](https://dotnet.microsoft.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![ISO/IEC 7812](https://img.shields.io/badge/Standard-ISO%2FIEC%207812--1%3A2017-orange)](https://www.iso.org/standard/70484.html)
 [![PCI-DSS](https://img.shields.io/badge/Compliance-PCI--DSS%20v4.0-red)](https://www.pcisecuritystandards.org)
