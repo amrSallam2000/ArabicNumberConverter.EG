@@ -1,3 +1,4 @@
+G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Release\net5.0\ArabicNumberConverter.EG.xml
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Release\net5.0\NumericValidation.EG.deps.json
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Release\net5.0\NumericValidation.EG.dll
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Release\net5.0\NumericValidation.EG.pdb
@@ -5,8 +6,8 @@ G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Release\net5.0\NumericValidation.EG.AssemblyInfoInputs.cache
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Release\net5.0\NumericValidation.EG.AssemblyInfo.cs
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Release\net5.0\NumericValidation.EG.csproj.CoreCompileInputs.cache
+G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Release\net5.0\NumericValidation.EG.sourcelink.json
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Release\net5.0\NumericValidation.EG.dll
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Release\net5.0\refint\NumericValidation.EG.dll
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Release\net5.0\NumericValidation.EG.pdb
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Release\net5.0\ref\NumericValidation.EG.dll
-G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Release\net5.0\ArabicNumberConverter.EG.xml

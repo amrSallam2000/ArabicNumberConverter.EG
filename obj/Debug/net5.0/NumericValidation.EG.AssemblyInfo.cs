@@ -15,16 +15,16 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("AmrSallam")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute(@"
-			Overview
-			A comprehensive system for validating and analyzing Egyptian numbers, supporting a wide range of formats including:
+      Overview
+      A comprehensive system for validating and analyzing Egyptian numbers, supporting a wide range of formats including:
 
-			Egyptian Barcodes (Weight barcode, Price barcode, Standard barcode)
-			Egyptian National ID (14-digit national number)
-			Egyptian Phone Numbers (Mobile)
-			Number-to-Words Conversion (Arabic and English)
-		")]
+      Egyptian Barcodes (Weight barcode, Price barcode, Standard barcode)
+      Egyptian National ID (14-digit national number)
+      Egyptian Phone Numbers (Mobile)
+      Number-to-Words Conversion (Arabic and English)
+    ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+9e2c09a990a86a64b4bb64280c3ed66f03a703ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArabicNumberConverter.EG")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NumericValidation.EG")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")]

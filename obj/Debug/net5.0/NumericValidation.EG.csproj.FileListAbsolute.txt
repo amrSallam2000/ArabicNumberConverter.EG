@@ -10,3 +10,4 @@ G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Debug\net5.0\NumericValidation.EG.pdb
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Debug\net5.0\ref\NumericValidation.EG.dll
 G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Debug\net5.0\ArabicNumberConverter.EG.xml
+G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\obj\Debug\net5.0\NumericValidation.EG.sourcelink.json

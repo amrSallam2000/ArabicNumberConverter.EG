@@ -10,14 +10,14 @@
     <icon>icon.png</icon>
     <readme>README.md</readme>
     <description>Overview
-			A comprehensive system for validating and analyzing Egyptian numbers, supporting a wide range of formats including:
+      A comprehensive system for validating and analyzing Egyptian numbers, supporting a wide range of formats including:
 
-			Egyptian Barcodes (Weight barcode, Price barcode, Standard barcode)
-			Egyptian National ID (14-digit national number)
-			Egyptian Phone Numbers (Mobile)
-			Number-to-Words Conversion (Arabic and English)</description>
+      Egyptian Barcodes (Weight barcode, Price barcode, Standard barcode)
+      Egyptian National ID (14-digit national number)
+      Egyptian Phone Numbers (Mobile)
+      Number-to-Words Conversion (Arabic and English)</description>
     <copyright>AmrSallam</copyright>
-    <repository type="git" />
+    <repository type="git" commit="9e2c09a990a86a64b4bb64280c3ed66f03a703ac" />
     <dependencies>
       <group targetFramework="net5.0" />
     </dependencies>
@@ -25,7 +25,6 @@
   <files>
     <file src="G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Debug\net5.0\NumericValidation.EG.dll" target="lib\net5.0\NumericValidation.EG.dll" />
     <file src="G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Debug\net5.0\ArabicNumberConverter.EG.xml" target="lib\net5.0\ArabicNumberConverter.EG.xml" />
-    <file src="G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\bin\Debug\net5.0\ArabicNumberConverter.EG.xml" target="\ArabicNumberConverter.EG.xml" />
     <file src="G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\README.md" target="\README.md" />
     <file src="G:\My Private Projects\revisions .net\NumericValidation\NumericValidation.EG\icon.png" target="\icon.png" />
   </files>

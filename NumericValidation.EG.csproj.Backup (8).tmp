@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+
+    <PackageId>ArabicNumberConverter.EG</PackageId>
+    <Title>Egyptian Numeric Validation System (EG Numeric Validation System)</Title>
+    <Authors>AmrSallam</Authors>
+
+    <Description>
+      Overview
+      A comprehensive system for validating and analyzing Egyptian numbers, supporting a wide range of formats including:
+
+      Egyptian Barcodes (Weight barcode, Price barcode, Standard barcode)
+      Egyptian National ID (14-digit national number)
+      Egyptian Phone Numbers (Mobile)
+      Number-to-Words Conversion (Arabic and English)
+    </Description>
+
+    <Copyright>AmrSallam</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Product>ArabicNumberConverter.EG</Product>
+    <PackageIcon>icon.png</PackageIcon>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ArabicNumberConverter.EG.xml</DocumentationFile>
+
+    <Version>1.0.2</Version>
+  </PropertyGroup>
+
+  <!-- تضمين ملف التوثيق XML داخل الباكيج -->
+  <ItemGroup>
+    <None Include="bin\$(Configuration)\$(TargetFramework)\ArabicNumberConverter.EG.xml" Pack="true" PackagePath="lib\net5.0\" />
+  </ItemGroup>
+
+  <!-- استبعاد ملفات غير مستخدمة -->
+  <ItemGroup>
+    <Compile Remove="Models\CureencyCinverter\**" />
+    <Compile Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="Models\CureencyCinverter\**" />
+    <EmbeddedResource Remove="Models\NewFolder\**" />
+    <None Remove="Models\CureencyCinverter\**" />
+    <None Remove="Models\NewFolder\**" />
+  </ItemGroup>
+
+  <!-- تضمين README و الأيقونة -->
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\BankCard\Logger\" />
+  </ItemGroup>
+
+</Project>
